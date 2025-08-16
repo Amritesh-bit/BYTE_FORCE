@@ -2,20 +2,11 @@
 import fs from "fs-extra";
 import path from "path";
 import chalk from "chalk";
-import inquirer from "inquirer";
 
 async function main() {
-  console.log(chalk.green("🚀 Welcome to Trigger.dev Job Scaffolder"));
+  const projectName = "Accelerating-Development-Job-Scaffolder";
 
-  const { projectName } = await inquirer.prompt({
-    type: "input",
-    name: "projectName",
-    message: "Enter your project name:",
-    validate: (input) =>
-      input && /^[a-zA-Z0-9-_]+$/.test(input)
-        ? true
-        : "Project name must be alphanumeric and can include - or _ only",
-  });
+  console.log(chalk.green(`🚀 Creating project "${projectName}"`));
 
   const baseDir = path.join(process.cwd(), projectName);
 
@@ -47,7 +38,7 @@ export const exampleJob = task({
 
   // Write package.json
   const pkgJson = {
-    name: projectName,
+    name: projectName.toLowerCase().replace(/\s+/g, "-"),
     version: "0.1.0",
     main: "src/index.ts",
     scripts: {
@@ -94,3 +85,5 @@ main().catch((error) => {
   console.error(chalk.red(error));
   process.exit(1);
 });
+
+
