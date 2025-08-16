@@ -1,2 +1,2 @@
 # BYTE_FORCE
-Accelerating Development Job Scaffolder: A command-line tool that automates project setup and generates boilerplate code for web applications, so developers can start building faster.
+This project is a CLI (Command-Line Interface) tool designed to automate the initial setup of new projects. It generates a complete directory structure, boilerplate code, and configuration files from predefined templates, saving you time and ensuring consistency.
